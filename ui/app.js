@@ -3,10 +3,13 @@ $(function(){
         var item = event.data;
         $('#hp-text').text(item.hp);
         $('#hp-bar').css("width", `${item.hp}%`)
-        $('#hp-text').text(item.ar);
-        $('#hp-bar').css("width", `${item.ar}%`)
-        $('#th-text').text(`${item.hg}/100`);
-        $('#th-text').text(`${item.ar}/100`);
+        $('#ar-text').text(item.ar);
+        $('#ar-bar').css("width", `${item.ar}%`)
+        if(item.ar == 0){
+            $('#ar').hide()
+        }
+        $('#th-text').text(`${item.th.toFixed(0)}/100`);
+        $('#hg-text').text(`${item.hg.toFixed(0)}/100`);
         $('#plcount').text(`${item.pcount}/64`);
     })
 })
