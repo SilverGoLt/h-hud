@@ -1,5 +1,6 @@
 ESX = nil
 local PlayerData = nil
+local hp
 
 Citizen.CreateThread(function()
 	if ESX == nil then
@@ -28,8 +29,13 @@ Citizen.CreateThread(function()
    while true do
 		  Citizen.Wait(500)
 		  playerPed = PlayerPedId()
+		  hp = GetEntityHealth(playerPed)
+		  if hp == 175 then
+			hp = 200
+			SetEntityHealth(playerPed, 200)
+		  end
 		  SendNUIMessage({
-			  hp = (GetEntityHealth(playerPed) -100),
+			  hp = hp - 100,
 			  ar = GetPedArmour(playerPed),
 			  hg =  HunVal,
 			  th =  ThiVal,

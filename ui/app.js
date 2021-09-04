@@ -7,6 +7,8 @@ $(function(){
         $('#ar-bar').css("width", `${item.ar}%`)
         if(item.ar == 0){
             $('#ar').hide()
+        } else {
+            $('#ar').fadeIn()
         }
         $('#th-text').text(`${item.th.toFixed(0)}/100`);
         $('#hg-text').text(`${item.hg.toFixed(0)}/100`);
